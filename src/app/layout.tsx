@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { config } from "@/config";
 import { getOgImageUrl } from "@/lib/ogImage";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fontSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -77,6 +78,7 @@ export default function RootLayout({
           <Footer />
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
