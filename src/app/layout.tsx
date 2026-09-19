@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Providers } from "./providers";
 import { config } from "@/config";
 import { getOgImageUrl } from "@/lib/ogImage";
+import { Analytics } from "@vercel/analytics/next";
 
 const fontSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -75,6 +76,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
