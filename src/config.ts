@@ -7,29 +7,29 @@ interface Category {
 
 const categories: Category[] = [
   {
-    label: "Foundation Model",
-    tag: "foundation-model",
-    description: "Insights on powerful AI models at the foundation of tech.",
+    label: "Health",
+    tag: "health",
+    description: "Wellness guidance, preventive care, and practical health insights for everyday life.",
   },
   {
-    label: "Engineering",
-    tag: "engineering",
-    description: "Innovative engineering driving AI advancements.",
+    label: "Wellness",
+    tag: "wellness",
+    description: "Daily habits and holistic routines that support a healthier, more balanced lifestyle.",
   },
   {
-    label: "Jobs",
-    tag: "jobs",
-    description: "Explore AI job trends and opportunities shaping a brighter future.",
+    label: "Nutrition",
+    tag: "nutrition",
+    description: "Food, nutrition, and mindful eating tips that support long-term wellbeing.",
   },
   {
-    label: "Startups",
-    tag: "startup",
-    description: "Spotlight on innovative AI startups transforming industries.",
+    label: "Lifestyle",
+    tag: "lifestyle",
+    description: "Smart routines and everyday choices that help you live healthier and happier.",
   },
   {
-    label: "Ethics",
-    tag: "ethics",
-    description: "Promoting responsible AI for positive impact.",
+    label: "Mental Wellness",
+    tag: "mental-wellness",
+    description: "Supportive advice for emotional balance, resilience, and personal wellbeing.",
   },
 ];
 
