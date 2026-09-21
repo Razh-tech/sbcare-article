@@ -25,17 +25,17 @@ export const metadata: Metadata = {
   description: config.description,
   applicationName: config.title,
   keywords: [
-    "SBCare",
-    "health",
+    "SB Care",
+    "kesehatan",
     "wellness",
-    "care",
-    "lifestyle",
-    "health tips",
+    "perawatan",
+    "gaya hidup sehat",
+    "tips kesehatan",
     "Indonesia",
-    "medical guidance",
+    "panduan kesehatan",
   ],
   alternates: {
-    canonical: "/",
+    canonical: config.baseUrl,
   },
   openGraph: {
     type: "website",
@@ -62,6 +62,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -71,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${fontSans.variable} antialiased font-sans`}>
         <Providers>
           {children}

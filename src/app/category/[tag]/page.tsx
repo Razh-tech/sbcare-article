@@ -21,11 +21,14 @@ export async function generateMetadata(
   } = params;
 
   return {
-    title: `Blog posts tagged with #${tag}`,
-    description: `List of all blog posts on ${config.organization} tagged with #${tag}`,
+    title: `Artikel dengan tag #${tag}`,
+    description: `Daftar semua artikel di ${config.organization} dengan tag #${tag}`,
+    alternates: {
+      canonical: `/category/${tag}`,
+    },
     openGraph: {
-      title: `Blog posts tagged with #${tag}`,
-      description: `List of all blog posts on ${config.organization} tagged with #${tag}`,
+      title: `Artikel dengan tag #${tag}`,
+      description: `Daftar semua artikel di ${config.organization} dengan tag #${tag}`,
       images: [getOgImageUrl(`#${tag}`)],
     },
   };
@@ -47,7 +50,7 @@ export default async function Page(
   const category = config.categories.find((c) => c.tag === tag);
   const { label, description } = category || {
     label: `#${tag}`,
-    description: `Blog posts tagged with #${tag}`,
+    description: `Artikel dengan tag #${tag}`,
   };
   const page = searchParams?.page ? parseInt(searchParams.page) : 1;
   const result = await wisp.getPosts({
@@ -63,8 +66,8 @@ export default async function Page(
         title={label}
         description={description}
         breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Category", href: `/category/` },
+          { label: "Beranda", href: "/" },
+          { label: "Kategori", href: `/category/` },
           { label, href: `/category/${tag}` },
         ]}
       />

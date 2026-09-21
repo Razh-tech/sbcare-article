@@ -23,12 +23,12 @@ import { z } from "zod";
 import { wisp } from "../lib/wisp";
 
 const formSchema = z.object({
-  author: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email address"),
+  author: z.string().min(1, "Nama wajib diisi"),
+  email: z.string().email("Alamat email tidak valid"),
   url: z
-    .union([z.string().url("Please enter a valid URL"), z.string().max(0)])
+    .union([z.string().url("Masukkan URL yang valid"), z.string().max(0)])
     .optional(),
-  content: z.string().min(1, "Comment cannot be empty"),
+  content: z.string().min(1, "Komentar tidak boleh kosong"),
   allowEmailUsage: z.boolean(),
 });
 
@@ -102,7 +102,7 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
     } catch (e) {
       if (e instanceof Error) {
         toast({
-          title: "Error",
+          title: "Terjadi kesalahan",
           description: e.message,
           variant: "destructive",
         });
@@ -115,11 +115,11 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
       <Alert className="bg-muted border-none">
         <AlertDescription className="space-y-2 text-center">
           <Shield className="text-muted-foreground mx-auto h-10 w-10" />
-          <div className="font-medium">Pending email verification</div>
+          <div className="font-medium">Verifikasi email masih menunggu</div>
           <div className="text-muted-foreground m-auto max-w-lg text-balance text-sm">
-            Thanks for your comment! Please check your email to verify your
-            email and post your comment. If you don&apos;t see it in your inbox,
-            please check your spam folder.
+            Terima kasih atas komentarnya! Silakan cek email Anda untuk
+            memverifikasi alamat email dan mempublikasikan komentar. Jika tidak
+            ada di kotak masuk, silakan cek folder spam.
           </div>
         </AlertDescription>
       </Alert>
@@ -135,10 +135,10 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
             name="author"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>Nama</FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Your name"
+                    placeholder="Nama Anda"
                     {...field}
                     className="focus-visible:ring-inset"
                   />
@@ -156,7 +156,7 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
                 <FormControl>
                   <Input
                     type="email"
-                    placeholder="you@example.com"
+                    placeholder="nama@contoh.com"
                     className="focus-visible:ring-inset"
                     {...field}
                   />
@@ -173,11 +173,11 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
             name="url"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Website (optional)</FormLabel>
+                <FormLabel>Situs web (opsional)</FormLabel>
                 <FormControl>
                   <Input
                     type="url"
-                    placeholder="https://example.com"
+                    placeholder="https://contoh.com"
                     className="focus-visible:ring-inset"
                     {...field}
                   />
@@ -193,10 +193,10 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
           name="content"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Comment</FormLabel>
+              <FormLabel>Komentar</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Share your thoughts..."
+                  placeholder="Bagikan pendapat Anda..."
                   className="min-h-[120px] resize-y focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-offset-0"
                   {...field}
                 />
@@ -230,7 +230,7 @@ export function CommentForm({ slug, config, onSuccess }: CommentFormProps) {
 
         <div className="flex items-center justify-between pt-2">
           <Button type="submit" disabled={form.formState.isSubmitting}>
-            Post Comment
+            Kirim Komentar
           </Button>
         </div>
       </form>

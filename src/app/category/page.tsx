@@ -9,12 +9,15 @@ import { config } from "@/config";
 import { getOgImageUrl } from "@/lib/ogImage";
 
 export const metadata: Metadata = {
-  title: `Blog post categories`,
-  description: `List of all categories on ${config.organization}`,
+  title: `Kategori artikel`,
+  description: `Daftar semua kategori artikel di ${config.organization}`,
+  alternates: {
+    canonical: "/category",
+  },
   openGraph: {
-    title: `Blog post categories`,
-    description: `List of all blog post categories on ${config.organization}`,
-    images: [getOgImageUrl(`Blog Post Categories`)],
+    title: `Kategori artikel`,
+    description: `Daftar semua kategori artikel di ${config.organization}`,
+    images: [getOgImageUrl(`Kategori Artikel`)],
   },
 };
 
@@ -24,11 +27,11 @@ export default async function Page() {
   return (
     <>
       <FullWidthHeader
-        title="Categories"
-        description="Browse blog posts by category"
+        title="Kategori"
+        description="Jelajahi artikel berdasarkan kategori"
         breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Category", href: `/category/` },
+          { label: "Beranda", href: "/" },
+          { label: "Kategori", href: `/category/` },
         ]}
       />
       <div className="container mx-auto text-xl px-4 mb-10 max-w-6xl">

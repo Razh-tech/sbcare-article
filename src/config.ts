@@ -7,42 +7,51 @@ interface Category {
 
 const categories: Category[] = [
   {
-    label: "Health",
+    label: "Kesehatan",
     tag: "health",
-    description: "Wellness guidance, preventive care, and practical health insights for everyday life.",
+    description: "Panduan kesehatan, pencegahan, dan tips praktis untuk gaya hidup sehari-hari yang lebih sehat.",
   },
   {
-    label: "Wellness",
+    label: "Kesejahteraan",
     tag: "wellness",
-    description: "Daily habits and holistic routines that support a healthier, more balanced lifestyle.",
+    description: "Kebiasaan harian dan rutinitas holistik yang mendukung gaya hidup lebih sehat dan seimbang.",
   },
   {
-    label: "Nutrition",
+    label: "Nutrisi",
     tag: "nutrition",
-    description: "Food, nutrition, and mindful eating tips that support long-term wellbeing.",
+    description: "Tips makanan, nutrisi, dan pola makan yang sehat untuk kesejahteraan jangka panjang.",
   },
   {
-    label: "Lifestyle",
+    label: "Gaya Hidup",
     tag: "lifestyle",
-    description: "Smart routines and everyday choices that help you live healthier and happier.",
+    description: "Rutinitas cerdas dan pilihan sehari-hari untuk hidup lebih sehat dan bahagia.",
   },
   {
-    label: "Mental Wellness",
+    label: "Kesehatan Mental",
     tag: "mental-wellness",
-    description: "Supportive advice for emotional balance, resilience, and personal wellbeing.",
+    description: "Panduan untuk keseimbangan emosional, ketahanan diri, dan kesehatan mental yang lebih baik.",
   },
 ];
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const normalizeBaseUrl = (value?: string) => {
+  if (!value) return "http://localhost:3000";
+  return value.startsWith("http://") || value.startsWith("https://")
+    ? value
+    : `https://${value}`;
+};
+
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const config = {
   blogId: process.env.NEXT_PUBLIC_BLOG_ID || "clvlugru90000o4g8ahxp069s",
-  baseUrl,
-  logoUrl: urlJoin(baseUrl, "logo.png"),
-  organization: process.env.NEXT_PUBLIC_BLOG_ORGANIZATION || "Example Org",
-  title: process.env.NEXT_PUBLIC_BLOG_TITLE || "Launched",
+  baseUrl: normalizeBaseUrl(baseUrl),
+  logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "logo.png"),
+  organization: process.env.NEXT_PUBLIC_BLOG_ORGANIZATION || "SB Care",
+  title: process.env.NEXT_PUBLIC_BLOG_TITLE || "SB Care",
   description:
     process.env.NEXT_PUBLIC_BLOG_DESCRIPTION ||
-    "Let's build something amazing!",
+    "Panduan kesehatan, gaya hidup, dan kesejahteraan untuk kehidupan yang lebih sehat dan seimbang.",
   categories,
 };

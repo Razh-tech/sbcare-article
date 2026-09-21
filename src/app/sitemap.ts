@@ -17,6 +17,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       priority: 1,
     },
+    {
+      url: urlJoin(config.baseUrl, "category"),
+      lastModified: new Date(),
+      priority: 0.7,
+    },
     ...postsResult.posts.map((post) => {
       return {
         url: urlJoin(config.baseUrl, "post", post.slug),
@@ -26,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
     ...tagsResult.tags.map((tag) => {
       return {
-        url: urlJoin(config.baseUrl, "category", tag.id),
+        url: urlJoin(config.baseUrl, "category", tag.name),
         lastModified: new Date(),
         priority: 0.5,
       };
