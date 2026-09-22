@@ -55,8 +55,8 @@ export const config = {
   blogId: process.env.NEXT_PUBLIC_BLOG_ID || "clvlugru90000o4g8ahxp069s",
   baseUrl: normalizeBaseUrl(baseUrl),
   logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "logo.png"),
-  organization: "SB Care",
-  title: "Artikel SB Care",
+  organization: "Smile Birth Corp",
+  title: "SB Artikel",
   description:
     "Panduan kesehatan, gaya hidup, dan kesejahteraan untuk kehidupan yang lebih sehat dan seimbang.",
   categories,

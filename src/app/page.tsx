@@ -12,10 +12,10 @@ import { config } from "../config";
 const { title, description } = config;
 
 export const metadata: Metadata = {
-  title,
+  title: { absolute: `${title} | SBCare - SmileBirth` },
   description,
   openGraph: {
-    title,
+    title: `${title} | SBCare - SmileBirth`,
     description,
     images: [getOgImageUrl(title)],
   },

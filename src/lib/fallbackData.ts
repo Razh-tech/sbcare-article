@@ -75,7 +75,7 @@ export const fallbackPosts: FallbackPost[] = [
     publishedAt: new Date("2026-01-10T08:00:00.000Z"),
     author: {
       id: "author-sbcare",
-      name: "SB Care Team",
+      name: "SBCare Team",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80",
     },
     tags: [
@@ -100,7 +100,7 @@ export const fallbackPosts: FallbackPost[] = [
     publishedAt: new Date("2026-02-05T08:00:00.000Z"),
     author: {
       id: "author-sbcare",
-      name: "SB Care Team",
+      name: "SBCare Team",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80",
     },
     tags: [
@@ -125,7 +125,7 @@ export const fallbackPosts: FallbackPost[] = [
     publishedAt: new Date("2026-03-11T08:00:00.000Z"),
     author: {
       id: "author-sbcare",
-      name: "SB Care Team",
+      name: "SBCare Team",
       image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=200&q=80",
     },
     tags: [

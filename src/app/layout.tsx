@@ -19,13 +19,13 @@ const ogImage = getOgImageUrl(config.title, config.organization);
 export const metadata: Metadata = {
   metadataBase: new URL(config.baseUrl),
   title: {
-    default: config.title,
-    template: `%s | ${config.title}`,
+    default: `${config.title} | SBCare - SmileBirth`,
+    template: `%s | SBCare - SmileBirth`,
   },
   description: config.description,
   applicationName: config.title,
   keywords: [
-    "SB Care",
+    "SBCare",
     "kesehatan",
     "wellness",
     "perawatan",
