@@ -31,7 +31,7 @@ export async function generateMetadata(
     title: result.post.title,
     description: result.post.description,
     alternates: {
-      canonical: `/post/${result.post.slug}`,
+      canonical: new URL(`/post/${result.post.slug}`, config.baseUrl).toString(),
     },
     openGraph: {
       title: result.post.title,

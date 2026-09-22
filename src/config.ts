@@ -54,6 +54,7 @@ const baseUrl =
 export const config = {
   blogId: process.env.NEXT_PUBLIC_BLOG_ID || "clvlugru90000o4g8ahxp069s",
   baseUrl: normalizeBaseUrl(baseUrl),
+  mainSiteUrl: "https://sbcare.co.id",
   logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "logo.png"),
   organization: "Smile Birth Corp",
   title: "SB Artikel",

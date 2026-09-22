@@ -24,7 +24,7 @@ export async function generateMetadata(
     title: `Artikel dengan tag #${tag}`,
     description: `Daftar semua artikel di ${config.organization} dengan tag #${tag}`,
     alternates: {
-      canonical: `/category/${tag}`,
+      canonical: new URL(`/category/${tag}`, config.baseUrl).toString(),
     },
     openGraph: {
       title: `Artikel dengan tag #${tag}`,

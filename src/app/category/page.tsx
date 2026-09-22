@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: `Kategori artikel`,
   description: `Daftar semua kategori artikel di ${config.organization}`,
   alternates: {
-    canonical: "/category",
+    canonical: new URL("/category", config.baseUrl).toString(),
   },
   openGraph: {
     title: `Kategori artikel`,
