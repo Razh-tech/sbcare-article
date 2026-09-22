@@ -40,18 +40,24 @@ const normalizeBaseUrl = (value?: string) => {
     : `https://${value}`;
 };
 
+const defaultBaseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://article.sbcare.co.id";
+
 const baseUrl =
   process.env.NEXT_PUBLIC_BASE_URL ||
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+  (process.env.VERCEL_URL && process.env.VERCEL_ENV !== "production"
+    ? `https://${process.env.VERCEL_URL}`
+    : defaultBaseUrl);
 
 export const config = {
   blogId: process.env.NEXT_PUBLIC_BLOG_ID || "clvlugru90000o4g8ahxp069s",
   baseUrl: normalizeBaseUrl(baseUrl),
   logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "logo.png"),
-  organization: process.env.NEXT_PUBLIC_BLOG_ORGANIZATION || "SB Care",
-  title: process.env.NEXT_PUBLIC_BLOG_TITLE || "SB Care",
+  organization: "SB Care",
+  title: "Artikel SB Care",
   description:
-    process.env.NEXT_PUBLIC_BLOG_DESCRIPTION ||
     "Panduan kesehatan, gaya hidup, dan kesejahteraan untuk kehidupan yang lebih sehat dan seimbang.",
   categories,
 };

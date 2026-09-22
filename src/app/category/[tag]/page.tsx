@@ -2,7 +2,7 @@ export const revalidate = 60; // 1 minute
 
 import { BlogPostList } from "@/components/BlogPostList";
 import { PostPagination } from "@/components/PostPagination";
-import { wisp } from "@/lib/wisp";
+import { wispSafe } from "@/lib/wisp";
 import { FilterBar } from "../../../components/FilterBar";
 import { FullWidthHeader } from "../../../components/FullWidthHeader";
 import { config } from "../../../config";
@@ -53,7 +53,7 @@ export default async function Page(
     description: `Artikel dengan tag #${tag}`,
   };
   const page = searchParams?.page ? parseInt(searchParams.page) : 1;
-  const result = await wisp.getPosts({
+  const result = await wispSafe.getPosts({
     limit: 6,
     tags: [tag],
     query: searchParams?.query,

@@ -3,14 +3,14 @@ export const revalidate = 360; // 1 hour
 
 import type { MetadataRoute } from "next";
 import urlJoin from "url-join";
-import { wisp } from "../lib/wisp";
+import { wispSafe } from "../lib/wisp";
 import { config } from "@/config";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const postsResult = await wisp.getPosts({
+  const postsResult = await wispSafe.getPosts({
     limit: "all",
   });
-  const tagsResult = await wisp.getTags();
+  const tagsResult = await wispSafe.getTags();
   return [
     {
       url: config.baseUrl,

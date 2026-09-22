@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
-import { wisp } from "@/lib/wisp";
+import { wispSafe } from "@/lib/wisp";
 import Link from "next/link";
 import { FullWidthHeader } from "../../components/FullWidthHeader";
 import { Metadata } from "next";
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const result = await wisp.getTags();
+  const result = await wispSafe.getTags();
 
   return (
     <>

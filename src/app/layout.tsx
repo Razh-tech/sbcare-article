@@ -77,9 +77,35 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: config.organization,
+        url: config.baseUrl,
+        logo: config.logoUrl,
+      },
+      {
+        "@type": "WebSite",
+        name: config.title,
+        url: config.baseUrl,
+        inLanguage: "id-ID",
+        publisher: {
+          "@type": "Organization",
+          name: config.organization,
+        },
+      },
+    ],
+  };
+
   return (
     <html lang="id">
       <body className={`${fontSans.variable} antialiased font-sans`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Providers>
           {children}
           <Footer />
