@@ -12,9 +12,9 @@ const categories: Category[] = [
     description: "Panduan kesehatan, pencegahan, dan tips praktis untuk gaya hidup sehari-hari yang lebih sehat.",
   },
   {
-    label: "Kesejahteraan",
-    tag: "wellness",
-    description: "Kebiasaan harian dan rutinitas holistik yang mendukung gaya hidup lebih sehat dan seimbang.",
+    label: "Partnership",
+    tag: "partnership",
+    description: "Kolaborasi strategis dan dukungan bersama yang memperkuat pertumbuhan dan kesejahteraan komunitas.",
   },
   {
     label: "Nutrisi",
