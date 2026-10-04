@@ -19,6 +19,11 @@ const ogImage = getOgImageUrl(config.title, config.organization);
 
 export const metadata: Metadata = {
   metadataBase: new URL(config.baseUrl),
+  icons: {
+    icon: "/sbcare_logo.jpg",
+    shortcut: "/sbcare_logo.jpg",
+    apple: "/sbcare_logo.jpg",
+  },
   title: {
     default: `${config.title} | SBCare - SmileBirth`,
     template: `%s | SBCare - SmileBirth`,
