@@ -53,18 +53,11 @@ const baseUrl =
 
 export const config = {
   blogId: process.env.NEXT_PUBLIC_BLOG_ID || "clvlugru90000o4g8ahxp069s",
-<<<<<<< HEAD
-  baseUrl,
-  logoUrl: urlJoin(baseUrl, "sbcare_logo.jpg"),
-  organization: process.env.NEXT_PUBLIC_BLOG_ORGANIZATION || "Example Org",
-  title: process.env.NEXT_PUBLIC_BLOG_TITLE || "Launched",
-=======
   baseUrl: normalizeBaseUrl(baseUrl),
   mainSiteUrl: "https://sbcare.co.id",
-  logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "logo.png"),
+  logoUrl: urlJoin(normalizeBaseUrl(baseUrl), "sbcare_logo.jpg"),
   organization: "Smile Birth Corp",
   title: "SB Artikel",
->>>>>>> e53599e17baf10038f3eaf6a53823fab3f06d87f
   description:
     "Panduan kesehatan, gaya hidup, dan kesejahteraan untuk kehidupan yang lebih sehat dan seimbang.",
   categories,
