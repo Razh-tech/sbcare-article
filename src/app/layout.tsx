@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
+import { SiteHeader } from "@/components/SiteHeader";
 import { Providers } from "./providers";
 import { config } from "@/config";
 import { getOgImageUrl } from "@/lib/ogImage";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const fontSans = IBM_Plex_Sans({
   subsets: ["latin"],
@@ -17,23 +20,23 @@ const ogImage = getOgImageUrl(config.title, config.organization);
 export const metadata: Metadata = {
   metadataBase: new URL(config.baseUrl),
   title: {
-    default: config.title,
-    template: `%s | ${config.title}`,
+    default: `${config.title} | SBCare - SmileBirth`,
+    template: `%s | SBCare - SmileBirth`,
   },
   description: config.description,
   applicationName: config.title,
   keywords: [
     "SBCare",
-    "health",
+    "kesehatan",
     "wellness",
-    "care",
-    "lifestyle",
-    "health tips",
+    "perawatan",
+    "gaya hidup sehat",
+    "tips kesehatan",
     "Indonesia",
-    "medical guidance",
+    "panduan kesehatan",
   ],
   alternates: {
-    canonical: "/",
+    canonical: config.baseUrl,
   },
   openGraph: {
     type: "website",
@@ -60,6 +63,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -68,13 +78,42 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: config.organization,
+        url: config.baseUrl,
+        logo: config.logoUrl,
+      },
+      {
+        "@type": "WebSite",
+        name: config.title,
+        url: config.baseUrl,
+        inLanguage: "id-ID",
+        publisher: {
+          "@type": "Organization",
+          name: config.organization,
+        },
+      },
+    ],
+  };
+
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${fontSans.variable} antialiased font-sans`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Providers>
+          <SiteHeader />
           {children}
           <Footer />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

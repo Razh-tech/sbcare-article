@@ -8,7 +8,7 @@ import { config } from "../config";
 import { cn } from "../lib/utils";
 import Link from "next/link";
 
-const categories = [{ label: "Latest", tag: "latest" }, ...config.categories];
+const categories = [{ label: "Terbaru", tag: "latest" }, ...config.categories];
 
 export interface BlogNavigationBarProps {
   className?: string;
@@ -63,7 +63,7 @@ export const FilterBar = ({ className, active }: BlogNavigationBarProps) => {
           <input
             ref={searchInputRef}
             type="text"
-            placeholder="Search..."
+            placeholder="Cari..."
             className="w-full border-none bg-transparent px-4 py-2 focus-visible:outline-none"
             onKeyUp={(e) => onHandleKey(e)}
             onBlur={onClearSearch}

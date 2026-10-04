@@ -190,11 +190,11 @@ export const ThemeSelection = () => {
   return (
     <>
       <FullWidthHeader
-        title="Theme selector"
-        description="Select a theme for the blog"
+        title="Pemilih tema"
+        description="Pilih tema untuk blog"
         breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Theme Selector", href: "/theme" },
+          { label: "Beranda", href: "/" },
+          { label: "Pemilih Tema", href: "/theme" },
         ]}
         className={gradient}
       />
@@ -207,19 +207,19 @@ export const ThemeSelection = () => {
       </div>
       <div className="container mx-auto px-4 my-8 flex gap-4 max-w-6xl">
         <div className="prose prose-lg w-2/5">
-          <h2>Instructions</h2>
+          <h2>Petunjuk</h2>
           <p>
-            This tool allows you to select some of the popular gradient or
-            generate a random gradient for the header to style the blog. Click
-            on the color blobs to select and apply the theme to this page.
+            Alat ini memungkinkan Anda memilih beberapa gradien populer atau
+            membuat gradien acak untuk header agar tampilan blog lebih menarik.
+            Klik pada warna untuk memilih dan menerapkan tema di halaman ini.
           </p>
           <p>
-            Once you are satisfied with the theme, copy the Tailwind Class from
-            above and apply it to the <code>FullWidthHeader</code> component.
+            Setelah puas dengan tema, salin class Tailwind di atas lalu terapkan
+            ke komponen <code>FullWidthHeader</code>.
           </p>
         </div>
         <div className="prose prose-lg w-3/5">
-          <h2>Light Gradients</h2>
+          <h2>Gradien Terang</h2>
           <div className="flex flex-wrap gap-2">
             {lightGradients.map((gradient) => (
               <GradientDisplayButton
@@ -230,13 +230,13 @@ export const ThemeSelection = () => {
               />
             ))}
           </div>
-          <p>or just select a random gradient:</p>
+          <p>atau pilih gradien acak:</p>
           <Button
             onClick={() => setGradientAndScrollToTop(randomLightGradient())}
           >
-            Random Gradient
+            Gradien Acak
           </Button>
-          <h2>Dark Gradients</h2>
+          <h2>Gradien Gelap</h2>
           <div className="flex flex-wrap gap-2">
             {darkGradients.map((gradient) => (
               <GradientDisplayButton
@@ -247,11 +247,11 @@ export const ThemeSelection = () => {
               />
             ))}
           </div>
-          <p>or just select a random gradient:</p>
+          <p>atau pilih gradien acak:</p>
           <Button
             onClick={() => setGradientAndScrollToTop(randomDarkGradient())}
           >
-            Random Gradient
+            Gradien Acak
           </Button>
         </div>
       </div>

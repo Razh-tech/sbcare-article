@@ -51,7 +51,7 @@ export const BlogContent = ({
         title={title}
         description=""
         breadcrumb={[
-          { label: "Home", href: "/" },
+          { label: "Beranda", href: "/" },
           { label: title, href: "" },
         ]}
       />
@@ -66,7 +66,7 @@ export const BlogContent = ({
           />
           <div className="font-medium">{author.name}</div> |
           <div>
-            Published on {publishedAt ? formatFullDate(publishedAt) : "N/A"}
+            Diterbitkan pada {publishedAt ? formatFullDate(publishedAt) : "N/A"}
           </div>
         </div>
         <div className="flex">
@@ -77,7 +77,7 @@ export const BlogContent = ({
               className="w-full not-prose my-6 block lg:hidden"
             >
               <AccordionItem value="toc" className="border-none">
-                <AccordionTrigger>Table of Content</AccordionTrigger>
+                <AccordionTrigger>Daftar Isi</AccordionTrigger>
                 <AccordionContent>
                   <TableOfContents items={tableOfContents} />
                 </AccordionContent>
@@ -92,7 +92,7 @@ export const BlogContent = ({
           </div>
           <div className="w-1/4 hidden lg:block">
             <div className="sticky top-0 mt-4 p-4 max-h-screen overflow-y-auto">
-              <div className="text-lg font-semibold">Table of Contents</div>
+              <div className="text-lg font-semibold">Daftar Isi</div>
               <TableOfContents items={tableOfContents} />
             </div>
           </div>

@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 60;
 
-import { wisp } from "@/lib/wisp";
+import { wispSafe } from "@/lib/wisp";
 import Link from "next/link";
 import { FullWidthHeader } from "../../components/FullWidthHeader";
 import { Metadata } from "next";
@@ -9,26 +9,29 @@ import { config } from "@/config";
 import { getOgImageUrl } from "@/lib/ogImage";
 
 export const metadata: Metadata = {
-  title: `Blog post categories`,
-  description: `List of all categories on ${config.organization}`,
+  title: `Kategori artikel`,
+  description: `Daftar semua kategori artikel di ${config.organization}`,
+  alternates: {
+    canonical: new URL("/category", config.baseUrl).toString(),
+  },
   openGraph: {
-    title: `Blog post categories`,
-    description: `List of all blog post categories on ${config.organization}`,
-    images: [getOgImageUrl(`Blog Post Categories`)],
+    title: `Kategori artikel`,
+    description: `Daftar semua kategori artikel di ${config.organization}`,
+    images: [getOgImageUrl(`Kategori Artikel`)],
   },
 };
 
 export default async function Page() {
-  const result = await wisp.getTags();
+  const result = await wispSafe.getTags();
 
   return (
     <>
       <FullWidthHeader
-        title="Categories"
-        description="Browse blog posts by category"
+        title="Kategori"
+        description="Jelajahi artikel berdasarkan kategori"
         breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Category", href: `/category/` },
+          { label: "Beranda", href: "/" },
+          { label: "Kategori", href: `/category/` },
         ]}
       />
       <div className="container mx-auto text-xl px-4 mb-10 max-w-6xl">

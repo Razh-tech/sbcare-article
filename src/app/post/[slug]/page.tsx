@@ -1,7 +1,7 @@
 export const revalidate = 60; // 1 minute'
 
 import type { Metadata } from "next";
-import { wisp } from "@/lib/wisp";
+import { wispSafe } from "@/lib/wisp";
 import { BlogContent } from "@/components/BlogContent";
 import type { BlogPosting, WithContext } from "schema-dts";
 import { config } from "@/config";
@@ -21,7 +21,7 @@ export async function generateMetadata(
     slug
   } = params;
 
-  const result = await wisp.getPost(slug);
+  const result = await wispSafe.getPost(slug);
   if (!result.post) {
     return {
       title: "Page not found!",
@@ -30,6 +30,9 @@ export async function generateMetadata(
   return {
     title: result.post.title,
     description: result.post.description,
+    alternates: {
+      canonical: new URL(`/post/${result.post.slug}`, config.baseUrl).toString(),
+    },
     openGraph: {
       title: result.post.title,
       description: result.post.description ?? "",
@@ -50,8 +53,8 @@ export default async function BlogPost(
   } = params;
 
   const [result, related] = await Promise.all([
-    wisp.getPost(slug),
-    wisp.getRelatedPosts({ slug, limit: 4 }),
+    wispSafe.getPost(slug),
+    wispSafe.getRelatedPosts({ slug, limit: 4 }),
   ]);
 
   if (!result.post) return null;

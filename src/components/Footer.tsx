@@ -17,6 +17,10 @@ export const Footer = () => {
             Blog powered by wisp
           </Link>
         </div>
+        <nav aria-label="Tautan situs" className="flex items-center gap-4 text-sm">
+          <a href={config.mainSiteUrl}>SBCare utama</a>
+          <Link href="/">Artikel</Link>
+        </nav>
         <Link href="/rss">
           <Button variant="ghost">
             <Rss className="w-4 h-4" />

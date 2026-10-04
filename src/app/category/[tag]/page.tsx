@@ -2,7 +2,7 @@ export const revalidate = 60; // 1 minute
 
 import { BlogPostList } from "@/components/BlogPostList";
 import { PostPagination } from "@/components/PostPagination";
-import { wisp } from "@/lib/wisp";
+import { wispSafe } from "@/lib/wisp";
 import { FilterBar } from "../../../components/FilterBar";
 import { FullWidthHeader } from "../../../components/FullWidthHeader";
 import { config } from "../../../config";
@@ -21,11 +21,14 @@ export async function generateMetadata(
   } = params;
 
   return {
-    title: `Blog posts tagged with #${tag}`,
-    description: `List of all blog posts on ${config.organization} tagged with #${tag}`,
+    title: `Artikel dengan tag #${tag}`,
+    description: `Daftar semua artikel di ${config.organization} dengan tag #${tag}`,
+    alternates: {
+      canonical: new URL(`/category/${tag}`, config.baseUrl).toString(),
+    },
     openGraph: {
-      title: `Blog posts tagged with #${tag}`,
-      description: `List of all blog posts on ${config.organization} tagged with #${tag}`,
+      title: `Artikel dengan tag #${tag}`,
+      description: `Daftar semua artikel di ${config.organization} dengan tag #${tag}`,
       images: [getOgImageUrl(`#${tag}`)],
     },
   };
@@ -47,10 +50,10 @@ export default async function Page(
   const category = config.categories.find((c) => c.tag === tag);
   const { label, description } = category || {
     label: `#${tag}`,
-    description: `Blog posts tagged with #${tag}`,
+    description: `Artikel dengan tag #${tag}`,
   };
   const page = searchParams?.page ? parseInt(searchParams.page) : 1;
-  const result = await wisp.getPosts({
+  const result = await wispSafe.getPosts({
     limit: 6,
     tags: [tag],
     query: searchParams?.query,
@@ -63,8 +66,8 @@ export default async function Page(
         title={label}
         description={description}
         breadcrumb={[
-          { label: "Home", href: "/" },
-          { label: "Category", href: `/category/` },
+          { label: "Beranda", href: "/" },
+          { label: "Kategori", href: `/category/` },
           { label, href: `/category/${tag}` },
         ]}
       />

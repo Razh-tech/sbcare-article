@@ -38,7 +38,7 @@ export const BlogPostList = ({ posts }: { posts: GetPostsResult["posts"] }) => {
                 className="rounded-full"
               />
               <div className="font-medium">
-                {post.author.name} | Published on{" "}
+                {post.author.name} | Diterbitkan pada{" "}
                 {formatFullDate(post.publishedAt || post.createdAt)}
               </div>
             </div>

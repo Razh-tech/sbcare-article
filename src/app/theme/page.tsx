@@ -2,8 +2,8 @@ import { getOgImageUrl } from "@/lib/ogImage";
 import { Metadata } from "next";
 import { ThemeSelection } from "../../components/ThemeSelection";
 
-const title = "Theme selector";
-const description = "Select or generate a gradient theme for your blog";
+const title = "Pemilih tema";
+const description = "Pilih atau buat tema gradien untuk blog Anda";
 
 export const metadata: Metadata = {
   title,
